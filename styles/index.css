@@ -1,0 +1,248 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #0e1111;
+    color: white;
+    width: 100%;
+    height: 100vh;
+}
+
+@font-face {
+    font-family: apparel;
+    src: url(../assets/fonts/Apparel-Font-Family/Demo_Fonts/Fontspring-DEMO-appareldisplay-regular.otf);
+}
+
+@font-face {
+    font-family: "apparel light";
+    src: url(../assets/fonts/Apparel-Font-Family/Demo_Fonts/Fontspring-DEMO-appareldisplay-thin.otf);
+}
+
+@font-face {
+    font-family: "oswald light";
+    src: url(../assets/fonts/Oswald/Oswald-Light.ttf);
+}
+
+@font-face {
+    font-family: "azbuka condensed";
+    src: url(../assets/fonts/Azbuka/Azbuka-Condensed.ttf);
+}
+
+@keyframes fadeInOut {
+    0% {
+        color: rgba(255, 255, 255, 1);
+    }
+    50% {
+        color: rgba(255, 255, 255, 0);
+    }
+    100% {
+        color: rgba(255, 255, 255, 1);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        color: rgba(255, 255, 255, 0);
+    }
+    to {
+        opacity: 1;
+        color: rgba(255, 255, 255, 1);
+    }
+}
+
+@keyframes imgFadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        display: none;
+    }
+}
+
+@keyframes rotateZero {
+    from {
+        transform: rotate(45deg);
+    }
+    to {
+        transform: rotate(315deg);
+    }
+}
+
+#loading-screen {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "oswald light";
+    font-size: 30px;
+    animation: fadeInOut 3s linear 1s infinite;
+}
+
+#box {
+    width: 450px;
+    height: 450px;
+    border: 0.5em solid white;
+    transform: rotate(45deg);
+    position: absolute;
+}
+
+#loading-screen > img {
+    width: 60%;
+    object-fit: contain;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+header {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    border-bottom: 2px solid #2bf;
+}
+
+header div#title {
+    line-height: 1;
+}
+
+header div#title #logo {
+    display: block;
+    font-family: apparel;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+header div#title #subLogo {
+    display: block;
+    font-family: "apparel light";
+    font-size: 18px;
+    font-weight: 600;
+}
+
+main {
+    display: flex;
+    font-family: "oswald light";
+}
+
+#content {
+    display: flex;
+    width: 100%;
+    position: relative;
+    height: 80vh;
+}
+
+#content > #bg-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.2;
+}
+
+#grid {
+  flex: 5;
+  max-height: 60vh;
+  width: 80%;
+  margin: 5em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+article {
+    font-family: "azbuka condensed";
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #2bf;
+    padding: 5px;
+    flex: 1 1 auto;
+}
+
+article > .title {
+    width: 100%;
+    text-align: center;
+    border-bottom: 2px solid #2bf;
+}
+
+article > p {
+    font-weight: 200;
+    margin-bottom: 0;
+}
+
+#founder {
+  max-height: 50%;
+}
+
+#founder > img {
+  height: 80%;
+}
+
+aside {
+    padding: 5px;
+    text-align: center;
+    flex: 1;
+}
+
+aside a {
+    display: block;
+}
+
+aside a img {
+    width: 100%;
+}
+
+footer {
+    height: 10vh;
+    padding-inline: 5%;
+    display: flex;
+    align-items: center;
+    font-family: "azbuka condensed";
+    border-top: 2px solid #2bf;
+}
+
+header,
+#content,
+footer {
+    display: none;
+}
+
+@media only screen and (max-width: 800px) {
+  #bg-img {
+    display: none;
+  }
+  #box {
+    width: 200px;
+    height: 200px;
+  }
+  header {
+    height: 14vh;
+  }
+  #content {
+    flex-wrap: wrap;
+  }
+  #grid {
+    margin: 4px;
+    width: 95%;
+    max-height: 155%;
+  }
+  article {
+    margin: 5px;
+  }
+  #founder {
+    max-width: 90%;
+  }
+  footer {
+    margin-top: 140%;
+  }
+}
